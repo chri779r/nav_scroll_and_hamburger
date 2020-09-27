@@ -1,0 +1,260 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+/*-------------------------------HEADER--------------------*/
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: background-color .5s ease;
+    z-index: 1000;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 13vh;
+}
+
+.nav {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, .05);
+}
+
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.nav .logo {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 10rem;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-right: 10rem;
+
+}
+
+.nav-link {
+    margin: 0 2rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .5s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+#nav-cta {
+    display: inline-flex;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    background-color: #fff;
+    border: 3px solid #fff;
+    color: #000;
+    padding: 15px 20px;
+    border-radius: 2rem;
+    transition: background-color .5s ease;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 1.6rem;
+    box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
+
+
+}
+
+#nav-cta {
+    text-decoration: none;
+}
+
+#nav-cta:hover {
+    background-color: transparent;
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+
+/*Apply styles after scroll*/
+.scrolling-active {
+    background-color: #fff;
+    box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
+}
+
+.scrolling-active .nav {
+    height: 13vh;
+}
+
+.scrolling-active .nav a {
+    color: #313131;
+}
+
+.scrolling-active .burger {
+    background-color: #fff;
+    color: #313131;
+}
+
+.scrolling-active .burger div {
+    background-color: #151515;
+}
+
+.scrolling-active .nav-link::after {
+    background-color: #313131;
+}
+
+/*Apply styles after scroll end*/
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    background-color: #F2F2F2;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    transition: all .3s ease;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/***************************************** NAV ANIMATION ********************************/
+/*@media screen and (max-width:1250px) {
+    .nav-list {
+        width: 55%;
+    }
+}*/
+
+@media screen and (max-width:1024px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-list {
+        position: absolute;
+        right: 0px;
+        height: 45vh;
+        top: 13vh;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform .5s ease-in;
+        letter-spacing: 1px;
+        margin-right: 0.1rem;
+        transition: background-color .5s ease;
+
+
+    }
+
+    .nav-list li {
+        opacity: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        /* skal benyttes */
+    }
+
+    .burger {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .nav-active {
+        transform: translateX(0%) !important;
+        z-index: 1;
+    }
+
+    .scrolling-active .nav-active {
+        background-color: #fff;
+        box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
+
+    }
+
+}
+
+
+
+/* Hero Demo Content*/
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url("farzad-nazifi-p-xSl33Wxyc-unsplash.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.demo-content {
+    width: 100%;
+    height: 200vh;
+    background-color: #fff;
+}
+
+/* Hero end*/
